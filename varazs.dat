@@ -1,0 +1,71 @@
+set Lakosok := Lakos1 Lakos2 Lakos3 Lakos4 Lakos5 Lakos6 Lakos7 Lakos8;
+set Novenyek := Noveny1 Noveny2 Noveny3;
+set Helyek := GurbafaAlja Tofenek SarosPatak KrampuszLegelo LegmagasabbFaTeteje;
+
+param minFaluEro := 10; # ennyi erő kell, hogy maradjon a faluban
+
+param lelohelyTavolsag:=  #km-ben megadott távolság
+GurbafaAlja				200
+Tofenek 				100
+SarosPatak 				300
+KrampuszLegelo 			234
+LegmagasabbFaTeteje		123
+;
+
+param novenyMennyiseg:  # ennyi növény található minden helyen
+			GurbafaAlja Tofenek SarosPatak KrampuszLegelo LegmagasabbFaTeteje:=
+ Noveny1    10          10      0          0              40
+ Noveny2    2           21      12         123            321
+ Noveny3    0           32      0          20             0
+ ;
+ 
+ param novenykell:= # ennyi kell a főzetbe
+ Noveny1 60
+ Noveny2 30
+ Noveny3 42
+ ;
+ 
+param lakosIram:=
+Lakos1 3 # perc/km
+Lakos2 2
+Lakos3 1
+Lakos4 1
+Lakos5 1
+Lakos6 1
+Lakos7 1
+Lakos8 1
+;
+
+param lakosTeherB:= #kg ben
+Lakos1 30
+Lakos2 60
+Lakos3 10
+Lakos4 10
+Lakos5 5
+Lakos6 5
+Lakos7 5
+Lakos8 5
+;
+
+param lakosEro:= #ero / ember
+Lakos1 1
+Lakos2 6
+Lakos3 2
+Lakos4 2
+Lakos5 2
+Lakos6 6
+Lakos7 2
+Lakos8 3
+;
+
+param felismerokepesseg:  # csak az 1eseket ismeri fel az adott lakos.
+		Noveny1 Noveny2 Noveny3:=
+Lakos1  1       1       0
+Lakos2  0       1       1
+Lakos3  0       1       0
+Lakos4  1       1       1
+Lakos5  1       0       1
+Lakos6  0       0       1
+Lakos7  1       1       0
+Lakos8  1       1       1
+; 
