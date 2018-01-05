@@ -14,7 +14,7 @@ param felismerokepesseg{Lakosok,Novenyek};
 #VÁLTOZÓK, DÖNTÉSEK
 var kiHonnanMibolMennyitHoz{Lakosok,Helyek,Novenyek}, >=0;
 var kiHanySzorMegy{Lakosok,Helyek},integer,>=0; # mert lehet többször fordul valaki.
-var kiMaradVedeni{Lakosok},binary;
+var kiMaradVedeni{Lakosok},integer,>=0;
 
 #KORLÁTOZÁSOK
 
@@ -36,7 +36,7 @@ s.t. kimegykisum{l in Lakosok}:
 
 #min def a faluban
 s.t. minEroSzam:
-sum{l in Lakosok} kiMaradVedeni[l] * lakosEro[l] <= minFaluEro;
+sum{l in Lakosok} kiMaradVedeni[l] * lakosEro[l] >= minFaluEro;
 
 #amit nem ismer fel, azt nem gyűjtheti be a táblázat szerint
 s.t. nemIsmeriNemGyujti{l in Lakosok,h in Helyek, n in Novenyek : felismerokepesseg[l,n] = 0}:
